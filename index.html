@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- ConfiguraciÃ³n bÃ¡sica del documento -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- TÃ­tulo que aparece en la pestaÃ±a del navegador -->
+    <title>Mi Primera ComuniÃ³n</title>
+
+    <!-- ImportaciÃ³n de fuentes decorativas de Google Fonts -->
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@400;500;600&display=swap');
+
+    /* Variables de colores utilizados en la invitaciÃ³n */
+    :root {
+        --rojo: #7c1725;
+        --oscuro: #4c0d18;
+        --dorado: #c5a365;
+        --crema: #fffaf1;
+    }
+
+    /* Evita que los bordes aumenten el tamaÃ±o de los elementos */
+    * {
+        box-sizing: border-box;
+    }
+
+    /* Estilos generales de la pÃ¡gina */
+    body {
+        margin: 0;
+        min-height: 100vh;
+        padding: 22px 12px 40px;
+        background: #eee0d9;
+        font-family: 'Cormorant Garamond', Georgia, serif;
+        color: #54232b;
+    }
+
+    /* Contenedor principal con apariencia de celular */
+    .celular {
+        width: 100%;
+        max-width: 410px;
+        margin: auto;
+        background: var(--crema);
+        border: 7px solid #242124;
+        border-radius: 35px;
+        overflow: hidden;
+        box-shadow: 0 15px 40px #35121c35;
+    }
+
+    /* Barra superior decorativa */
+    .barra {
+        height: 38px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 17px;
+        font: 12px Arial, sans-serif;
+        background: #fffdf9;
+        color: #222;
+    }
+
+    /* Barra con el nombre de la invitaciÃ³n */
+    .navegacion {
+        text-align: center;
+        padding: 12px;
+        font: 13px Arial, sans-serif;
+        border-bottom: 1px solid #eee4dc;
+        background: #fffdf9;
+    }
+
+    /* Ãrea principal donde se presenta la invitaciÃ³n */
+    .pantalla {
+        padding: 22px 19px 30px;
+        text-align: center;
+        background:
+            radial-gradient(ellipse at top left, #f2e2d7, transparent 45%),
+            #fffaf1;
+    }
+
+    /* Decoraciones florales */
+    .flores {
+        color: #a64c4c;
+        letter-spacing: 7px;
+        font-size: 24px;
+    }
+
+    /* Texto pequeÃ±o que aparece sobre el tÃ­tulo */
+    .mini {
+        font-size: 12px;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        margin-top: 23px;
+        color: #885b4d;
+    }
+
+    /* TÃ­tulo principal con letra cursiva */
+    h1 {
+        font-family: 'Great Vibes', cursive;
+        font-weight: normal;
+        font-size: 53px;
+        line-height: 1.12;
+        color: var(--rojo);
+        margin: 13px 0;
+    }
+
+    /* Texto introductorio */
+    .intro {
+        font-size: 19px;
+        line-height: 1.5;
+    }
+
+    /* Contenedor que mantiene la perspectiva del sobre */
+    .zona-sobre {
+        margin: 30px auto 20px;
+        width: 100%;
+        max-width: 310px;
+        perspective: 1000px;
+    }
+
+    /* BotÃ³n que representa el sobre */
+    .sobre {
+        width: 100%;
+        height: 280px;
+        position: relative;
+        cursor: pointer;
+        border: none;
+        background: transparent;
+        display: block;
+        padding: 0;
+        perspective: 1000px;
+    }
+
+    /* Base roja del sobre */
+    .base {
+        position: absolute;
+        inset: 0;
+        border-radius: 3px;
+        background: linear-gradient(
+            145deg, #a52b3a, var(--rojo) 55%, #5b101d
+        );
+        box-shadow: 0 12px 20px #44101d35;
+        overflow: hidden;
+    }
+
+    /* Primera lÃ­nea decorativa de la base */
+    .base::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+            145deg, transparent 49.5%,
+            #4f0d18 50%, transparent 50.7%
+        );
+    }
+
+    /* Segunda lÃ­nea decorativa de la base */
+    .base::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+            35deg, transparent 49.5%,
+            #c05b61 50%, transparent 50.8%
+        );
+    }
+
+    /* Solapa superior que se abre al tocar el sobre */
+    .solapa {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 62%;
+        background: linear-gradient(155deg, #a52d3a, #711522);
+        clip-path: polygon(0 0, 100% 0, 50% 100%);
+        transform-origin: top;
+        z-index: 5;
+        transition: transform 1s ease, opacity .6s;
+    }
+
+    /* Sello decorativo ubicado en el centro del sobre */
+    .sello {
+        position: absolute;
+        top: 44%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 7;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background: radial-gradient(circle, #fff6dd, var(--dorado));
+        border: 3px double #f8e5b4;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        color: #7a2730;
+        transition: opacity .3s;
+    }
+
+    /* Tarjeta interior que aparece al abrir el sobre */
+    .tarjeta-mini {
+        position: absolute;
+        left: 5%;
+        width: 90%;
+        height: 90%;
+        bottom: 3%;
+        z-index: 3;
+        padding: 12px 8px;
+        border: 1px solid var(--dorado);
+        background: #fffdf8;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden; /* Impide que la imagen sobresalga de la tarjeta */
+        transition: transform 1s ease .35s;
+    }
+
+    /* Cruz decorativa de la tarjeta interior */
+    .tarjeta-mini .cruz {
+        color: var(--dorado);
+        font-size: 27px;
+    }
+
+    /* Texto de la tarjeta pequeÃ±a */
+    .tarjeta-mini p {
+        margin: 7px 0;
+        font-size: 13px;
+    }
+
+    /* Nombre decorativo de la tarjeta pequeÃ±a */
+    .nombres-mini {
+        font-family: 'Great Vibes', cursive;
+        color: var(--rojo);
+        font-size: 25px;
+    }
+
+    /* AnimaciÃ³n de apertura de la solapa */
+    .sobre.abierto .solapa {
+        transform: rotateX(180deg);
+        z-index: 1;
+        opacity: .25;
+    }
+
+    /* Oculta el sello cuando se abre el sobre */
+    .sobre.abierto .sello {
+        opacity: 0;
+    }
+
+    /* Desliza la tarjeta hacia arriba al abrir el sobre */
+    .sobre.abierto .tarjeta-mini {
+        transform: translateY(-90px);
+        z-index: 8;
+    }
+
+    /* MODIFICACIÃ“N: ajusta la imagen al tamaÃ±o de la tarjeta */
+    .tarjeta-mini img {
+        display: block;
+        width: 100%;       /* Ocupa todo el ancho disponible */
+        height: 100%;      /* Ocupa todo el alto disponible */
+        max-width: 100%;   /* Evita que exceda el ancho */
+        object-fit: cover; /* Llena el espacio sin deformar la imagen */
+        object-position: center; /* Centra la imagen */
+    }
+
+    /* InstrucciÃ³n para abrir la invitaciÃ³n */
+    .instruccion {
+        color: #7c4d4d;
+        font-size: 17px;
+        font-style: italic;
+    }
+
+    /* Flecha animada que indica dÃ³nde tocar */
+    .flecha {
+        font-size: 24px;
+        color: var(--rojo);
+        animation: flotar 1.3s infinite;
+    }
+
+    /* Movimiento vertical de la flecha */
+    @keyframes flotar {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(6px); }
+    }
+
+    /* InvitaciÃ³n completa: permanece oculta al inicio */
+    .invitacion {
+        display: none;
+        text-align: center;
+        padding: 22px 18px;
+        margin-top: 25px;
+        background: #fffdf8;
+        border: 2px solid var(--dorado);
+        outline: 1px solid #dfcda5;
+        outline-offset: 4px;
+        animation: aparecer .9s ease both;
+    }
+
+    /* Muestra la invitaciÃ³n cuando se agrega la clase visible */
+    .invitacion.visible {
+        display: block;
+    }
+
+    /* AnimaciÃ³n para mostrar la invitaciÃ³n */
+    @keyframes aparecer {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* TÃ­tulo de la invitaciÃ³n completa */
+    .invitacion h2 {
+        font-family: 'Great Vibes', cursive;
+        font-weight: normal;
+        font-size: 43px;
+        color: var(--rojo);
+        margin: 10px 0;
+    }
+
+    /* Nombres de los niÃ±os */
+    .nombres {
+        font-family: 'Great Vibes', cursive;
+        color: var(--rojo);
+        font-size: 30px;
+        line-height: 1.55;
+        margin: 18px 0;
+    }
+
+    /* Separadores decorativos */
+    .separador {
+        color: var(--dorado);
+        letter-spacing: 5px;
+        margin: 20px 0;
+    }
+
+    /* PÃ¡rrafos de la invitaciÃ³n */
+    .texto {
+        font-size: 18px;
+        line-height: 1.6;
+    }
+
+    /* Recuadro con fecha, hora y lugares */
+    .datos {
+        text-align: left;
+        padding: 15px 10px;
+        margin-top: 18px;
+        background: #f8eee9;
+        border: 1px solid #e6d4bd;
+        font-size: 16px;
+        line-height: 1.5;
+    }
+
+    /* Etiquetas de los datos */
+    .datos strong {
+        display: block;
+        font-size: 12px;
+        letter-spacing: 2px;
+        color: #986e41;
+        margin-top: 12px;
+    }
+
+    /* InformaciÃ³n editable de cada dato */
+    .datos span {
+        display: block;
+        min-height: 22px;
+    }
+
+    /* Frases finales de la invitaciÃ³n */
+    .cierre {
+        font-size: 17px;
+        line-height: 1.6;
+        font-style: italic;
+        margin: 22px 0 8px;
+    }
+
+    /* BotÃ³n para abrir o cerrar la invitaciÃ³n */
+    .boton {
+        display: block;
+        margin: 20px auto 0;
+        padding: 12px 22px;
+        background: var(--rojo);
+        color: white;
+        border: 1px solid var(--dorado);
+        border-radius: 3px;
+        font-family: Georgia, serif;
+        font-size: 15px;
+        cursor: pointer;
+    }
+
+    /* Ajustes para pantallas pequeÃ±as */
+    @media(max-width: 370px) {
+        .pantalla { padding: 18px 12px; }
+        h1 { font-size: 46px; }
+        .sobre { height: 175px; }
+    }
+
+    /* Ajustes para imprimir la invitaciÃ³n */
+    @media print {
+        body { background: white; padding: 0; }
+        .celular { border: none; box-shadow: none; }
+        .barra, .navegacion, .boton,
+        .instruccion, .flecha { display: none; }
+        .invitacion { display: block !important; }
+    }
+    </style>
+</head>
+
+<body>
+
+<!-- Contenedor principal de la invitaciÃ³n -->
+<main class="celular">
+
+    <!-- Barra superior decorativa del celular -->
+    <div class="barra">
+        <span>10:29</span>
+        <span>â— â— â— â–°</span>
+    </div>
+
+    <!-- Encabezado de la pÃ¡gina -->
+    <div class="navegacion">
+        â™¡ &nbsp; Mi Primera ComuniÃ³n &nbsp; â€¢â€¢â€¢
+    </div>
+
+    <!-- Pantalla principal -->
+    <section class="pantalla">
+
+        <!-- DecoraciÃ³n floral superior -->
+        <div class="flores">âœ¿ â€ âœ¿</div>
+
+        <!-- Texto introductorio -->
+        <div class="mini">EstÃ¡s invitado a celebrar</div>
+
+        <!-- TÃ­tulo principal -->
+        <h1>Mi Primera<br>ComuniÃ³n</h1>
+
+        <p class="intro">
+            Un dÃ­a lleno de fe,<br>
+            amor y bendiciones.
+        </p>
+
+        <!-- SOBRE INTERACTIVO -->
+        <div class="zona-sobre">
+
+            <!-- Al tocar este botÃ³n se abre el sobre -->
+            <button class="sobre" id="sobre"
+                    aria-label="Abrir invitaciÃ³n"
+                    aria-expanded="false">
+
+                <!-- Base roja del sobre -->
+                <div class="base"></div>
+
+                <!-- Tarjeta que aparece dentro del sobre -->
+                <div class="tarjeta-mini">
+                    <div class="cruz">âœ</div>
+
+                    <!-- Imagen ajustada mediante CSS -->
+                    <img
+                        src="https://i.pinimg.com/736x/92/e0/7d/92e07dd8b19d2b208798dfef9579df96.jpg"
+                        alt="Imagen decorativa de la Primera ComuniÃ³n">
+                </div>
+
+                <!-- Solapa que se anima al abrir -->
+                <div class="solapa"></div>
+
+                <!-- Sello del sobre -->
+                <div class="sello">âœ</div>
+
+            </button>
+        </div>
+
+        <!-- Flecha e instrucciÃ³n para abrir -->
+        <div class="flecha" id="flecha">âŒƒ</div>
+
+        <p class="instruccion" id="instruccion">
+            Toca el sobre para abrir tu invitaciÃ³n
+        </p>
+
+        <!-- DecoraciÃ³n floral -->
+        <div class="flores">â€ â™¡ â€</div>
+
+        <!-- INVITACIÃ“N COMPLETA: SE MUESTRA AL ABRIR -->
+        <section class="invitacion" id="invitacion">
+
+            <div class="flores">âœ¿ â€ âœ¿</div>
+            <div style="font-size:35px;color:#c5a365">âœ</div>
+
+            <p class="mini">Con la bendiciÃ³n de Dios</p>
+
+            <!-- Mensaje de bienvenida -->
+            <p class="texto">
+                La Familia MartÃ­nez tiene el honor de invitarle cordialmente a la celebraciÃ³n de 
+            </p>
+
+            
+
+            <!-- TÃ­tulo de la invitaciÃ³n -->
+            <h2>Nuestra Primera ComuniÃ³n</h2>
+
+            <div class="separador">â”€â”€â”€â”€ â™¡ â”€â”€â”€â”€</div>
+
+            <!-- Nombres editables -->
+            <div class="nombres" contenteditable="true">
+                Maria Fernanda L.M.<br>
+                JosÃ© Manuel M.M.<br>
+                Bianca Esmeralda H.M.
+            </div>
+                
+                 <p class="texto">
+                Nos encantarÃ¡ contar con tu presencia.
+            </p>
+
+            <div class="separador">â”€â”€â”€â”€ â™¡ â”€â”€â”€â”€</div>
+
+            <!-- Datos del evento -->
+            <div class="datos">
+
+                <strong>âœ§ FECHA</strong>
+                <span contenteditable="true">
+                    SÃ¡bado 21 de Noviembre del 2026
+                </span>
+
+                <strong>âœ§ HORA</strong>
+                <span contenteditable="true">1:00 PM</span>
+
+                <strong>âœ§ CEREMONIA RELIGIOSA</strong>
+                <span contenteditable="true">
+                    CelebraciÃ³n en la Iglesia de Nuestra SeÃ±ora de La Merced, Villa Victoria.
+                </span>
+
+                <strong>âœ§ RECEPCIÃ“N</strong>
+                <span contenteditable="true">
+                    Casa de la Familia Martinez<br>
+                    Comida a las 3:00 pm.
+                </span>
+
+            </div>
+
+            <!-- Cita bÃ­blica -->
+            <p class="cierre">
+                Con mucha alegrÃ­a en nuestros corazones,
+                queremos compartir contigo un momento
+                muy especial en nuestras vidas: recibir
+                por primera vez a JesÃºs en la EucaristÃ­a.<br>
+                
+            </p>
+
+            <div class="flores">âœ¿ â€ âœ¿</div>
+
+            <!-- Mensaje de despedida -->
+            <p class="cierre">
+                SerÃ¡ un privilegio contar con su presencia en este dÃ­a tan especial.<br>
+                
+            </p>
+
+        </section>
+
+        <!-- BotÃ³n alternativo para abrir o cerrar -->
+        <button class="boton" id="boton" type="button">
+            Abrir invitaciÃ³n
+        </button>
+
+    </section>
+</main>
+
+<!-- CÃ“DIGO JAVASCRIPT PARA CONTROLAR LA APERTURA -->
+<script>
+    // Se obtienen los elementos HTML por su identificador
+    const sobre = document.getElementById('sobre');
+    const invitacion = document.getElementById('invitacion');
+    const instruccion = document.getElementById('instruccion');
+    const boton = document.getElementById('boton');
+    const flecha = document.getElementById('flecha');
+
+    // Variable que indica si la invitaciÃ³n estÃ¡ abierta
+    let abierta = false;
+
+    // FunciÃ³n para abrir o cerrar la invitaciÃ³n
+    function alternarInvitacion() {
+
+        // Cambia el estado actual
+        abierta = !abierta;
+
+        // Activa o desactiva las animaciones del sobre
+        sobre.classList.toggle('abierto', abierta);
+
+        // Muestra u oculta la invitaciÃ³n completa
+        invitacion.classList.toggle('visible', abierta);
+
+        // Actualiza el estado accesible del botÃ³n
+        sobre.setAttribute('aria-expanded', String(abierta));
+
+        // Acciones cuando se abre la invitaciÃ³n
+        if (abierta) {
+
+            instruccion.textContent =
+                'Â¡Hoy JesÃºs llega a mi corazÃ³n y quiero compartir contigo la alegria de recibirlo por primera vez!';
+
+            // Oculta la flecha
+            flecha.style.display = 'none';
+
+            // Cambia el texto del botÃ³n
+            boton.textContent = 'Cerrar invitaciÃ³n';
+
+            // Desplaza la pantalla hasta la invitaciÃ³n
+            setTimeout(() => {
+                invitacion.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }, 450);
+
+        } else {
+
+            // Acciones cuando se cierra la invitaciÃ³n
+            instruccion.textContent =
+                'Toca el sobre para abrir tu invitaciÃ³n';
+
+            // Vuelve a mostrar la flecha
+            flecha.style.display = 'block';
+
+            // Restaura el texto del botÃ³n
+            boton.textContent = 'Abrir invitaciÃ³n';
+
+            // Regresa la pantalla hacia el sobre
+            document.querySelector('.zona-sobre').scrollIntoView({
+                behavior: 'smooth',
+                block: 'center'
+            });
+        }
+    }
+
+    // Permite abrir o cerrar tocando directamente el sobre
+    sobre.addEventListener('click', alternarInvitacion);
+
+    // Permite hacer lo mismo con el botÃ³n inferior
+    boton.addEventListener('click', alternarInvitacion);
+</script>
+
+</body>
+</html>
