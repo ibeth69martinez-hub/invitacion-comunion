@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <!-- ConfiguraciÃ³n bÃ¡sica del documento -->
+    <!-- Configuración básica del documento -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- TÃ­tulo que aparece en la pestaÃ±a del navegador -->
-    <title>Mi Primera ComuniÃ³n</title>
+    <!-- Título que aparece en la pestaña del navegador -->
+    <title>Mi Primera Comunión</title>
 
-    <!-- ImportaciÃ³n de fuentes decorativas de Google Fonts -->
+    <!-- Importación de fuentes decorativas de Google Fonts -->
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@400;500;600&display=swap');
 
-    /* Variables de colores utilizados en la invitaciÃ³n */
+    /* Variables de colores utilizados en la invitación */
     :root {
         --rojo: #7c1725;
         --oscuro: #4c0d18;
@@ -20,12 +20,12 @@
         --crema: #fffaf1;
     }
 
-    /* Evita que los bordes aumenten el tamaÃ±o de los elementos */
+    /* Evita que los bordes aumenten el tamaño de los elementos */
     * {
         box-sizing: border-box;
     }
 
-    /* Estilos generales de la pÃ¡gina */
+    /* Estilos generales de la página */
     body {
         margin: 0;
         min-height: 100vh;
@@ -59,7 +59,7 @@
         color: #222;
     }
 
-    /* Barra con el nombre de la invitaciÃ³n */
+    /* Barra con el nombre de la invitación */
     .navegacion {
         text-align: center;
         padding: 12px;
@@ -68,7 +68,7 @@
         background: #fffdf9;
     }
 
-    /* Ãrea principal donde se presenta la invitaciÃ³n */
+    /* Área principal donde se presenta la invitación */
     .pantalla {
         padding: 22px 19px 30px;
         text-align: center;
@@ -84,7 +84,7 @@
         font-size: 24px;
     }
 
-    /* Texto pequeÃ±o que aparece sobre el tÃ­tulo */
+    /* Texto pequeño que aparece sobre el título */
     .mini {
         font-size: 12px;
         letter-spacing: 3px;
@@ -93,7 +93,7 @@
         color: #885b4d;
     }
 
-    /* TÃ­tulo principal con letra cursiva */
+    /* Título principal con letra cursiva */
     h1 {
         font-family: 'Great Vibes', cursive;
         font-weight: normal;
@@ -117,7 +117,7 @@
         perspective: 1000px;
     }
 
-    /* BotÃ³n que representa el sobre */
+    /* Botón que representa el sobre */
     .sobre {
         width: 100%;
         height: 280px;
@@ -142,7 +142,7 @@
         overflow: hidden;
     }
 
-    /* Primera lÃ­nea decorativa de la base */
+    /* Primera línea decorativa de la base */
     .base::before {
         content: "";
         position: absolute;
@@ -153,7 +153,7 @@
         );
     }
 
-    /* Segunda lÃ­nea decorativa de la base */
+    /* Segunda línea decorativa de la base */
     .base::after {
         content: "";
         position: absolute;
@@ -223,20 +223,20 @@
         font-size: 27px;
     }
 
-    /* Texto de la tarjeta pequeÃ±a */
+    /* Texto de la tarjeta pequeña */
     .tarjeta-mini p {
         margin: 7px 0;
         font-size: 13px;
     }
 
-    /* Nombre decorativo de la tarjeta pequeÃ±a */
+    /* Nombre decorativo de la tarjeta pequeña */
     .nombres-mini {
         font-family: 'Great Vibes', cursive;
         color: var(--rojo);
         font-size: 25px;
     }
 
-    /* AnimaciÃ³n de apertura de la solapa */
+    /* Animación de apertura de la solapa */
     .sobre.abierto .solapa {
         transform: rotateX(180deg);
         z-index: 1;
@@ -254,7 +254,7 @@
         z-index: 8;
     }
 
-    /* MODIFICACIÃ“N: ajusta la imagen al tamaÃ±o de la tarjeta */
+    /* MODIFICACIÓN: ajusta la imagen al tamaño de la tarjeta */
     .tarjeta-mini img {
         display: block;
         width: 100%;       /* Ocupa todo el ancho disponible */
@@ -264,14 +264,14 @@
         object-position: center; /* Centra la imagen */
     }
 
-    /* InstrucciÃ³n para abrir la invitaciÃ³n */
+    /* Instrucción para abrir la invitación */
     .instruccion {
         color: #7c4d4d;
         font-size: 17px;
         font-style: italic;
     }
 
-    /* Flecha animada que indica dÃ³nde tocar */
+    /* Flecha animada que indica dónde tocar */
     .flecha {
         font-size: 24px;
         color: var(--rojo);
@@ -284,7 +284,7 @@
         50% { transform: translateY(6px); }
     }
 
-    /* InvitaciÃ³n completa: permanece oculta al inicio */
+    /* Invitación completa: permanece oculta al inicio */
     .invitacion {
         display: none;
         text-align: center;
@@ -297,12 +297,12 @@
         animation: aparecer .9s ease both;
     }
 
-    /* Muestra la invitaciÃ³n cuando se agrega la clase visible */
+    /* Muestra la invitación cuando se agrega la clase visible */
     .invitacion.visible {
         display: block;
     }
 
-    /* AnimaciÃ³n para mostrar la invitaciÃ³n */
+    /* Animación para mostrar la invitación */
     @keyframes aparecer {
         from {
             opacity: 0;
@@ -314,7 +314,7 @@
         }
     }
 
-    /* TÃ­tulo de la invitaciÃ³n completa */
+    /* Título de la invitación completa */
     .invitacion h2 {
         font-family: 'Great Vibes', cursive;
         font-weight: normal;
@@ -323,7 +323,7 @@
         margin: 10px 0;
     }
 
-    /* Nombres de los niÃ±os */
+    /* Nombres de los niños */
     .nombres {
         font-family: 'Great Vibes', cursive;
         color: var(--rojo);
@@ -339,7 +339,7 @@
         margin: 20px 0;
     }
 
-    /* PÃ¡rrafos de la invitaciÃ³n */
+    /* Párrafos de la invitación */
     .texto {
         font-size: 18px;
         line-height: 1.6;
@@ -365,13 +365,13 @@
         margin-top: 12px;
     }
 
-    /* InformaciÃ³n editable de cada dato */
+    /* Información editable de cada dato */
     .datos span {
         display: block;
         min-height: 22px;
     }
 
-    /* Frases finales de la invitaciÃ³n */
+    /* Frases finales de la invitación */
     .cierre {
         font-size: 17px;
         line-height: 1.6;
@@ -379,7 +379,7 @@
         margin: 22px 0 8px;
     }
 
-    /* BotÃ³n para abrir o cerrar la invitaciÃ³n */
+    /* Botón para abrir o cerrar la invitación */
     .boton {
         display: block;
         margin: 20px auto 0;
@@ -393,14 +393,14 @@
         cursor: pointer;
     }
 
-    /* Ajustes para pantallas pequeÃ±as */
+    /* Ajustes para pantallas pequeñas */
     @media(max-width: 370px) {
         .pantalla { padding: 18px 12px; }
         h1 { font-size: 46px; }
         .sobre { height: 175px; }
     }
 
-    /* Ajustes para imprimir la invitaciÃ³n */
+    /* Ajustes para imprimir la invitación */
     @media print {
         body { background: white; padding: 0; }
         .celular { border: none; box-shadow: none; }
@@ -413,43 +413,43 @@
 
 <body>
 
-<!-- Contenedor principal de la invitaciÃ³n -->
+<!-- Contenedor principal de la invitación -->
 <main class="celular">
 
     <!-- Barra superior decorativa del celular -->
     <div class="barra">
         <span>10:29</span>
-        <span>â— â— â— â–°</span>
+        <span>● ● ● ◧</span>
     </div>
 
-    <!-- Encabezado de la pÃ¡gina -->
+    <!-- Encabezado de la página -->
     <div class="navegacion">
-        â™¡ &nbsp; Mi Primera ComuniÃ³n &nbsp; â€¢â€¢â€¢
+        ♡ &nbsp; Mi Primera Comunión &nbsp; •••
     </div>
 
     <!-- Pantalla principal -->
     <section class="pantalla">
 
-        <!-- DecoraciÃ³n floral superior -->
-        <div class="flores">âœ¿ â€ âœ¿</div>
+        <!-- Decoración floral superior -->
+        <div class="flores">❀ ❀ ❀</div>
 
         <!-- Texto introductorio -->
-        <div class="mini">EstÃ¡s invitado a celebrar</div>
+        <div class="mini">Estás invitado a celebrar</div>
 
-        <!-- TÃ­tulo principal -->
-        <h1>Mi Primera<br>ComuniÃ³n</h1>
+        <!-- Título principal -->
+        <h1>Mi Primera<br>Comunión</h1>
 
         <p class="intro">
-            Un dÃ­a lleno de fe,<br>
+            Un día lleno de fe,<br>
             amor y bendiciones.
         </p>
 
         <!-- SOBRE INTERACTIVO -->
         <div class="zona-sobre">
 
-            <!-- Al tocar este botÃ³n se abre el sobre -->
+            <!-- Al tocar este botón se abre el sobre -->
             <button class="sobre" id="sobre"
-                    aria-label="Abrir invitaciÃ³n"
+                    aria-label="Abrir invitación"
                     aria-expanded="false">
 
                 <!-- Base roja del sobre -->
@@ -457,83 +457,83 @@
 
                 <!-- Tarjeta que aparece dentro del sobre -->
                 <div class="tarjeta-mini">
-                    <div class="cruz">âœ</div>
+                    <div class="cruz">✝</div>
 
                     <!-- Imagen ajustada mediante CSS -->
                     <img
                         src="https://i.pinimg.com/736x/92/e0/7d/92e07dd8b19d2b208798dfef9579df96.jpg"
-                        alt="Imagen decorativa de la Primera ComuniÃ³n">
+                        alt="Imagen decorativa de la Primera Comunión">
                 </div>
 
                 <!-- Solapa que se anima al abrir -->
                 <div class="solapa"></div>
 
                 <!-- Sello del sobre -->
-                <div class="sello">âœ</div>
+                <div class="sello">✝</div>
 
             </button>
         </div>
 
-        <!-- Flecha e instrucciÃ³n para abrir -->
-        <div class="flecha" id="flecha">âŒƒ</div>
+        <!-- Flecha e instrucción para abrir -->
+        <div class="flecha" id="flecha">⌄</div>
 
         <p class="instruccion" id="instruccion">
-            Toca el sobre para abrir tu invitaciÃ³n
+            Toca el sobre para abrir tu invitación
         </p>
 
-        <!-- DecoraciÃ³n floral -->
-        <div class="flores">â€ â™¡ â€</div>
+        <!-- Decoración floral -->
+        <div class="flores">❀ ♡ ❀</div>
 
-        <!-- INVITACIÃ“N COMPLETA: SE MUESTRA AL ABRIR -->
+        <!-- INVITACIÓN COMPLETA: SE MUESTRA AL ABRIR -->
         <section class="invitacion" id="invitacion">
 
-            <div class="flores">âœ¿ â€ âœ¿</div>
-            <div style="font-size:35px;color:#c5a365">âœ</div>
+            <div class="flores">❀ ❀ ❀</div>
+            <div style="font-size:35px;color:#c5a365">✝</div>
 
-            <p class="mini">Con la bendiciÃ³n de Dios</p>
+            <p class="mini">Con la bendición de Dios</p>
 
             <!-- Mensaje de bienvenida -->
             <p class="texto">
-                La Familia MartÃ­nez tiene el honor de invitarle cordialmente a la celebraciÃ³n de 
+                La Familia Martínez tiene el honor de invitarle cordialmente a la celebración de 
             </p>
 
             
 
-            <!-- TÃ­tulo de la invitaciÃ³n -->
-            <h2>Nuestra Primera ComuniÃ³n</h2>
+            <!-- Título de la invitación -->
+            <h2>Nuestra Primera Comunión</h2>
 
-            <div class="separador">â”€â”€â”€â”€ â™¡ â”€â”€â”€â”€</div>
+            <div class="separador">──── ♡ ────</div>
 
             <!-- Nombres editables -->
             <div class="nombres" contenteditable="true">
                 Maria Fernanda L.M.<br>
-                JosÃ© Manuel M.M.<br>
+                José Manuel M.M.<br>
                 Bianca Esmeralda H.M.
             </div>
                 
                  <p class="texto">
-                Nos encantarÃ¡ contar con tu presencia.
+                Nos encantará contar con tu presencia.
             </p>
 
-            <div class="separador">â”€â”€â”€â”€ â™¡ â”€â”€â”€â”€</div>
+            <div class="separador">──── ♡ ────</div>
 
             <!-- Datos del evento -->
             <div class="datos">
 
-                <strong>âœ§ FECHA</strong>
+                <strong>✧ FECHA</strong>
                 <span contenteditable="true">
-                    SÃ¡bado 21 de Noviembre del 2026
+                    Sábado 21 de Noviembre del 2026
                 </span>
 
-                <strong>âœ§ HORA</strong>
+                <strong>✧ HORA</strong>
                 <span contenteditable="true">1:00 PM</span>
 
-                <strong>âœ§ CEREMONIA RELIGIOSA</strong>
+                <strong>✧ CEREMONIA RELIGIOSA</strong>
                 <span contenteditable="true">
-                    CelebraciÃ³n en la Iglesia de Nuestra SeÃ±ora de La Merced, Villa Victoria.
+                    Celebración en la Iglesia de Nuestra Señora de La Merced, Villa Victoria.
                 </span>
 
-                <strong>âœ§ RECEPCIÃ“N</strong>
+                <strong>✧ RECEPCIÓN</strong>
                 <span contenteditable="true">
                     Casa de la Familia Martinez<br>
                     Comida a las 3:00 pm.
@@ -541,34 +541,34 @@
 
             </div>
 
-            <!-- Cita bÃ­blica -->
+            <!-- Cita bíblica -->
             <p class="cierre">
-                Con mucha alegrÃ­a en nuestros corazones,
+                Con mucha alegría en nuestros corazones,
                 queremos compartir contigo un momento
                 muy especial en nuestras vidas: recibir
-                por primera vez a JesÃºs en la EucaristÃ­a.<br>
+                por primera vez a Jesús en la Eucaristía.<br>
                 
             </p>
 
-            <div class="flores">âœ¿ â€ âœ¿</div>
+            <div class="flores">❀ ❀ ❀</div>
 
             <!-- Mensaje de despedida -->
             <p class="cierre">
-                SerÃ¡ un privilegio contar con su presencia en este dÃ­a tan especial.<br>
+                Será un privilegio contar con su presencia en este día tan especial.<br>
                 
             </p>
 
         </section>
 
-        <!-- BotÃ³n alternativo para abrir o cerrar -->
+        <!-- Botón alternativo para abrir o cerrar -->
         <button class="boton" id="boton" type="button">
-            Abrir invitaciÃ³n
+            Abrir invitación
         </button>
 
     </section>
 </main>
 
-<!-- CÃ“DIGO JAVASCRIPT PARA CONTROLAR LA APERTURA -->
+<!-- CÓDIGO JAVASCRIPT PARA CONTROLAR LA APERTURA -->
 <script>
     // Se obtienen los elementos HTML por su identificador
     const sobre = document.getElementById('sobre');
@@ -577,10 +577,10 @@
     const boton = document.getElementById('boton');
     const flecha = document.getElementById('flecha');
 
-    // Variable que indica si la invitaciÃ³n estÃ¡ abierta
+    // Variable que indica si la invitación está abierta
     let abierta = false;
 
-    // FunciÃ³n para abrir o cerrar la invitaciÃ³n
+    // Función para abrir o cerrar la invitación
     function alternarInvitacion() {
 
         // Cambia el estado actual
@@ -589,25 +589,25 @@
         // Activa o desactiva las animaciones del sobre
         sobre.classList.toggle('abierto', abierta);
 
-        // Muestra u oculta la invitaciÃ³n completa
+        // Muestra u oculta la invitación completa
         invitacion.classList.toggle('visible', abierta);
 
-        // Actualiza el estado accesible del botÃ³n
+        // Actualiza el estado accesible del botón
         sobre.setAttribute('aria-expanded', String(abierta));
 
-        // Acciones cuando se abre la invitaciÃ³n
+        // Acciones cuando se abre la invitación
         if (abierta) {
 
             instruccion.textContent =
-                'Â¡Hoy JesÃºs llega a mi corazÃ³n y quiero compartir contigo la alegria de recibirlo por primera vez!';
+                '¡Hoy Jesús llega a mi corazón y quiero compartir contigo la alegría de recibirlo por primera vez!';
 
             // Oculta la flecha
             flecha.style.display = 'none';
 
-            // Cambia el texto del botÃ³n
-            boton.textContent = 'Cerrar invitaciÃ³n';
+            // Cambia el texto del botón
+            boton.textContent = 'Cerrar invitación';
 
-            // Desplaza la pantalla hasta la invitaciÃ³n
+            // Desplaza la pantalla hasta la invitación
             setTimeout(() => {
                 invitacion.scrollIntoView({
                     behavior: 'smooth',
@@ -617,15 +617,15 @@
 
         } else {
 
-            // Acciones cuando se cierra la invitaciÃ³n
+            // Acciones cuando se cierra la invitación
             instruccion.textContent =
-                'Toca el sobre para abrir tu invitaciÃ³n';
+                'Toca el sobre para abrir tu invitación';
 
             // Vuelve a mostrar la flecha
             flecha.style.display = 'block';
 
-            // Restaura el texto del botÃ³n
-            boton.textContent = 'Abrir invitaciÃ³n';
+            // Restaura el texto del botón
+            boton.textContent = 'Abrir invitación';
 
             // Regresa la pantalla hacia el sobre
             document.querySelector('.zona-sobre').scrollIntoView({
@@ -638,7 +638,7 @@
     // Permite abrir o cerrar tocando directamente el sobre
     sobre.addEventListener('click', alternarInvitacion);
 
-    // Permite hacer lo mismo con el botÃ³n inferior
+    // Permite hacer lo mismo con el botón inferior
     boton.addEventListener('click', alternarInvitacion);
 </script>
 
